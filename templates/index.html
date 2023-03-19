@@ -1,0 +1,90 @@
+ {% extends "base.html" %} {% block content %}
+
+<form method="get" class="linkform">
+    <label for="vurl">Enter YouTube Video URL:</label>
+
+
+    <input type="text" name="vurl" id="vurl">
+
+
+    <button type="submit">Download</button>
+</form>
+
+<div style="display: grid;">
+
+
+
+    {% if videos %}
+
+
+
+
+
+
+    <div class="ytvid">
+        <img src=" {{thumb}} " alt="" class="ytthumb">
+
+        <h1 class="ytheading">{{title}}</h1>
+
+    </div>
+
+
+
+    <table>
+        <tr>
+            <th>Sr.</th>
+            <th>Resolution</th>
+            <th>Formate</th>
+            <th>File Size</th>
+            <th>Download</th>
+        </tr>
+
+
+
+
+        {% for video in videos %}
+
+        <tr>
+            <td>
+                {{ forloop.counter }}
+            </td>
+
+            <td>
+                <p>{{ video.res }}</p>
+            </td>
+            <td>
+                <p>{{ video.mime_type }}</p>
+            </td>
+            <td>
+                <p>{{ video.filesize }} Mb</p>
+            </td>
+
+            <td>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ forloop.counter0 }}" name="itag">
+                    <button type="submit">Download</button>
+
+                </form>
+            </td>
+        </tr>
+
+
+
+
+
+
+
+
+        {% endfor %}
+
+    </table>
+
+
+
+
+    {% endif %}
+</div>
+
+{% endblock %}

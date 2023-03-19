@@ -1,0 +1,33 @@
+<div class="container">
+    <header>
+
+        <h1 class="name">YouTube Downloader</h1>
+
+
+        <div class="menu">
+
+            {% url 'home' as url %}
+
+            <div class=" 
+            {% if request.path == url %}
+                active
+            {% endif %}
+                  nav-item">
+                <a href="/" class="navlink">Home</a>
+            </div>
+
+            {% url 'about' as url %}
+            <div class="
+            {% if request.path == url %}
+            active
+            {% endif %}
+            
+            nav-item ">
+                <a class="navlink" href="{% url 'about' %}">About Us</a>
+            </div>
+
+        </div>
+
+
+</div>
+</header>
