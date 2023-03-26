@@ -26,8 +26,5 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('about-us/', views.aboutus, name="about"),
     path('userform/', views.userform, name="userform"),
-
-    re_path(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     
 ]

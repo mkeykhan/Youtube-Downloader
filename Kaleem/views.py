@@ -62,8 +62,6 @@ def home(request):
     if request.method == "POST":
         try:
             inp = int(request.POST['itag'])
-            print(inp)
-            # print(istreams[inp].title)
             tag = int(istreams[inp].itag)
 
             homedir = os.path.expanduser("~")
